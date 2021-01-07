@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="container-banner">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active" *ngFor="let banner of banners">
+                    <img [src]="banner.imgBanner" class="d-block w-100" alt="..."></div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <section class="section section-poducts-init">
+        <div class="container container-section-products">
+            <div class="title-section">
+                <div class="title">
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea">
+                    <span class="subtitle-section">Nuevos productos</span>
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea"></div>
+            </div>
+            <owl-carousel-o [options]="customOptions" class="carousel-products">
+                <ng-container *ngFor="let producto of productosNuevos">
+                    <ng-template carouselSlide="carouselSlide" [id]="producto.id">
+                        <div class="card" class="card-producto" [routerLink]="['/producto', producto.id]">
+                            <img [src]="producto.imgProducto" [alt]="" [title]="producto.nombre">
+                            <div class="ver-mas-detalles">
+                                <button class="btn btn-ver-mas">
+                                    +
+                                </button>
+                                <span class="texto-ver-mas">Ver mas</span>
+                            </div>
+                            <div class="center-elements">
+                                <span class="marca">{{producto.marca.nombre}}</span>
+                                <span class="name-producto">{{producto.nombre}}</span>
+                                <span class="precio">{{producto.precio | currency: 'USD' : 'symbol': '3.0'}}</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+        <div class="container container-section-products">
+            <div class="title-section">
+                <div class="title">
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea">
+                    <span class="subtitle-section">Kits</span>
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea"></div>
+            </div>
+            <owl-carousel-o [options]="customOptions" class="carousel-products">
+
+                <ng-container *ngFor="let producto of productosNuevos">
+                    <ng-template carouselSlide="carouselSlide" [id]="producto.id">
+                        <div class="card" class="card-producto" [routerLink]="['/producto', producto.id]">
+                            <img [src]="producto.imgProducto" [alt]="producto.nombre" [title]="producto.nombre">
+                            <div class="ver-mas-detalles">
+                                <button class="btn btn-ver-mas">
+                                    +
+                                </button>
+                                <span class="texto-ver-mas">Ver mas</span>
+                            </div>
+                            <div class="center-elements">
+                                <span class="marca">{{producto.marca.nombre}}</span>
+                                <span class="name-producto">{{producto.nombre}}</span>
+                                <span class="precio">{{producto.precio | currency: 'USD' : 'symbol': '3.0'}}</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+            </owl-carousel-o>
+        </div>
+    </section>
+    <section class="section section-tendencias">
+        <div class="container-tendencias">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-description">
+                    <div class="title-section">
+                        <img class="img" [src]="'assets/logos/home/SIMBOL1.png'" alt="Logo Kamala Azul">
+                        <span class="title">Tendencias actuales</span>
+                        <p class="paragraph-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ullam minus sapiente sed expedita, amet nihil laborum dolore delectus quia animi magnam fugiat nisi, eum voluptates accusantium tempore voluptas dolorum.
+                        </p>
+                        <button class="btn btn-outline">Ver tendencias</button>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 col-images">
+                    <div class="container-images">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-9 col-xl-9 col-img-tendencias">
+                                <img [src]="'assets/imagenes/home/tendencias/4_edit.jpg'" alt="" class="img"></div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-img-tendencias">
+                                <img [src]="'assets/imagenes/home/tendencias/PRINT_edit_web.jpg'" alt="" class="img-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-tips">
+        <div class="container container-section-promociones">
+            <div class="title-section">
+                <div class="title">
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea">
+                    <span class="subtitle-section">Tips de belleza</span>
+                    <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea"></div>
+            </div>
+            <div class="container-cards-tips">
+                <div class="card" *ngFor="let tip of tips | slice:0:4; index as i">
+                    <a [href]="[tip.link]" target="_blank" rel="noopener noreferrer" class="link">
+                        <img src="{{tip.img}}" alt="{{tip.titulo}}" class="img-tip">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

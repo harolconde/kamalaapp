@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="37" viewBox="0 0 38 37">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_22" data-name="Rectángulo 22" width="38" height="37" transform="translate(840 990)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Enmascarar_grupo_6" data-name="Enmascarar grupo 6" transform="translate(-840 -990)" clip-path="url(#clip-path)">
+    <g id="grid-outline" transform="translate(842.687 991.321)">
+      <rect id="Rectángulo_23" data-name="Rectángulo 23" width="13.944" height="14.536" rx="2.232" transform="translate(0 0)" stroke-width="3.571" stroke="#e57373" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect id="Rectángulo_24" data-name="Rectángulo 24" width="13.944" height="14.536" rx="2.232" transform="translate(19.015 0)" stroke-width="3.571" stroke="#e57373" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect id="Rectángulo_25" data-name="Rectángulo 25" width="13.944" height="14.536" rx="2.232" transform="translate(0 19.821)" stroke-width="3.571" stroke="#e57373" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect id="Rectángulo_26" data-name="Rectángulo 26" width="13.944" height="14.536" rx="2.232" transform="translate(19.015 19.821)" stroke-width="3.571" stroke="#e57373" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+  </g>
+</svg>

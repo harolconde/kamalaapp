@@ -1,0 +1,84 @@
+<section class="section-cesta-de-compras" id="section-cesta-de-compras">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="container-totales">
+                <h3 class="title">Cesta de productos</h3>
+                <div class="costo-total">
+                    <p class="total-tittle">Total (Iva incluido)</p>
+                    <p class="total">{{totales | currency: 'USD' : 'symbol': '1.0'}}</p>
+                </div>
+                <div class="envio-costo">
+                    <p class="minimo-tittle">Te faltan para tu envio gratis</p>
+                    <p class="minimo-total" *ngIf="minimo < 300000 || minimo > 0; else gratis">{{minimo | currency: 'USD' : 'symbol': '1.0'}}</p>
+                    <ng-template #gratis>
+                        <p class="minimo-gratis">Gratis!!</p>
+                    </ng-template>
+                </div>
+                <div class="container-btn-submit">
+                    <button class="btn btn-comprar" id="btn-comprar" (click)="comprar()">
+                        Comprar
+                    </button>
+                </div>
+                <cite class="minimo-descripcion">*Compra minima a partir de $20,000</cite>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="container">
+                <div class="container-productos-cesta">
+                    <ul class="list-group-flush">
+                        <li class="list-group-item titulos_cesta">
+                            <em class="titulo">Producto</em>
+                            <em class="titulo">Precio</em>
+                            <em class="titulo">Cantidad</em>
+                            <em class="titulo">Total</em>
+                            <em class="titulo">Accion</em>
+                        </li>
+                        <div class="producto-en-cesta" *ngIf="existenciaProducto; else sinproducto">
+                            <li class="list-group-item" *ngFor="let producto of productosEnCesta; index as i">
+                                <div class="container-producto-detalle-cesta">
+                                    <div class="productos nombre-imagen">
+                                        <img class="img-producto-cesta" src="{{producto.imgProducto}}" alt="">
+                                        <p class="producto-marca">{{producto.marca.nombre}}</p>
+                                        <p class="producto-nombre">{{producto.nombre}}</p>
+                                    </div>
+                                    <div class="productos precio">
+                                        <p class="producto-precio">{{producto.precio | currency: 'USD' : 'symbol': '3.0' }}</p>
+                                    </div>
+                                    <div class="productos cantidad">
+                                        <div class="producto-cantidad">
+                                            <span class="btn btn-menos" (click)="agregarMenosProducto(producto)">
+                                                    -
+                                                </span>
+                                            <input class="input-cantidad" min="1" type="number" name="" id="" [value]="producto.cantidad" disabled>
+                                            <span class="btn btn-mas" (click)="agregarMasProducto(producto)">
+                                                        +
+                                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="productos total">
+                                        <p class="producto-total">{{producto.total | currency: 'USD' : 'symbol': '3.0'}}</p>
+                                    </div>
+                                    <div class="productos accion">
+                                        <span class="btn" (click)="quitarProducto(producto)">
+                                            Quitar
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="productos-accion">
+                                    <span class="btn" (click)="quitarProducto(producto)">
+                                        Quitar
+                                    </span>
+                                </div>
+                            </li>
+                        </div>
+                        <ng-template #sinproducto id="sinproducto" class="sinproducto">
+                            <div class="sin-contenido">
+                                <p class="paragraph">No has agregado productos a la cesta aún</p>
+                            </div>
+                        </ng-template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

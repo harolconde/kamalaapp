@@ -1,0 +1,69 @@
+<section class="section-productos-categorias" id="section-productos-categorias">
+    <div class="container">
+        <div class="container-productos-categorias" *ngIf="idCategoria | async as producto">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                    <h1 class="titulo-categoria" *ngIf="producto[0]">{{producto[0].categoria.nombre}}</h1>
+                    <div class="filtros d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                        <ul class="list-group-flush">
+                            <li class="list-group-item list-subcategorias" *ngFor="let item of producto; let i = index; trackBy: trackByItems " [routerLink]="['/subcategoria', item.subcategoria.id, item.subcategoria.nombre]">
+                                {{item.subcategoria.nombre}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filtros d-block d-sm-block d-md-block d-lg-none d-xl-node">
+                        <div class="form-group">
+                            <label for="inputMarca">Buscar por:</label>
+                            <select class="custom-select" id="inputSelect">
+                                <option value="" selected>Seleccione</option>
+                                <option *ngFor="let item of producto; let i = index; trackBy: trackByItems " [routerLink]="['/subcategoria', item.subcategoria.id, item.subcategoria.nombre]">
+                                    {{item.subcategoria.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
+                    <div class="card card-producto" *ngFor="let item of producto | paginate: { itemsPerPage: 8, currentPage:p}" [routerLink]="['/producto', item.id]">
+                        <img [src]="item.imgProducto" [alt]="" [title]="item.nombre">
+                        <div class="ver-mas-detalles">
+                            <button class="btn btn-ver-mas">
+                                +
+                            </button>
+                            <span class="texto-ver-mas">Ver mas</span>
+                        </div>
+                        <div class="center-elements">
+                            <span class="marca">{{item.marca.nombre}}</span>
+                            <span class="name-producto">{{item.nombre}}</span>
+                            <span class="precio">{{item.precio | currency: 'USD' : 'symbol': '3.0'}}</span>
+                        </div>
+                    </div>
+                    <pagination-template #p1="paginationApi" (pageChange)="pageChange.emit($event);p = $event" class="paginationNgx">
+                        <div class="pagination-previous" [class.disabled]="p1.isFirstPage()">
+                            <a *ngIf="!p1.isFirstPage()" (click)="p1.previous()" class="arrowPagination arrowPrevius"> <img [src]="'assets/logos/home/chevron-back-outline.png'" class="arrowPagination arrowPrevius" alt=""> </a>
+                        </div>
+
+                        <div *ngFor="let page of p1.pages" [class.current]="p1.getCurrent() === page.value">
+                            <a (click)="p1.setCurrent(page.value)" *ngIf="p1.getCurrent() !== page.value">
+                                <span>{{ page.label }}</span>
+                            </a>
+                            <div *ngIf="p1.getCurrent() === page.value">
+                                <span>{{ page.label }}</span>
+                            </div>
+                        </div>
+
+                        <div class="pagination-next" [class.disabled]="p1.isLastPage()">
+                            <a *ngIf="!p1.isLastPage()" (click)="p1.next()" class="arrowPagination arrowNext"> <img [src]="'assets/logos/home/chevron-forward-outline.png'" class="arrowPagination arrowNext" alt=""></a>
+                        </div>
+                    </pagination-template>
+                </div>
+            </div>
+        </div>
+        <div class="container-logo-kamala">
+            <span class="line"></span>
+            <img class="img" [src]="'assets/logos/home/SIMBOL2.png'" alt="Logo Kamala Azul" alt="">
+            <span class="line"></span>
+        </div>
+    </div>
+</section>

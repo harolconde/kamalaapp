@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_3" data-name="Rectángulo 3" width="40" height="40" transform="translate(1723 65)" fill="#fff" stroke="#e57373" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="buscar" transform="translate(-1723 -65)" clip-path="url(#clip-path)">
+    <g id="search-outline" transform="translate(1718.457 60.457)">
+      <path id="Trazado_3" data-name="Trazado 3" d="M20.925,6.057A14.868,14.868,0,1,0,35.793,20.925,14.868,14.868,0,0,0,20.925,6.057Z" fill="none" stroke="#e57373" stroke-miterlimit="10" stroke-width="3.029"/>
+      <line id="Línea_4" data-name="Línea 4" x2="10.384" y2="10.384" transform="translate(32.018 32.018)" fill="none" stroke="#e57373" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3.029"/>
+    </g>
+  </g>
+</svg>

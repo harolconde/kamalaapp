@@ -1,0 +1,98 @@
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Color
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+// Media queries
+@mixin responsiveMovil {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+.footer {
+    background-color: $secondary-color;
+    overflow-x: hidden;
+    .row {
+        &.row-1 {
+            padding-left: 135px;
+            padding-right: 135px;
+            @include responsiveMovil {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+        padding-bottom: 15px;
+        @include responsiveMovil {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .items-footer {
+            @include responsiveMovil {
+                padding-right: 0;
+            }
+            .list-group-flush {
+                margin-top: 30px;
+                padding-left: 0;
+                .list-group-item:nth-child(1) {
+                    text-transform: uppercase;
+                    font-size: 20px;
+                    font-weight: 300;
+                    color: #F4A8BF;
+                    background-color: transparent;
+                }
+                .list-group-item {
+                    background-color: transparent;
+                    padding-bottom: 0;
+                    border: 0;
+                    .link-footer {
+                        color: #fff;
+                        font-size: 1rem;
+                        text-decoration: none;
+                        font-weight: 200;
+                    }
+                    .link-footer:hover {
+                        text-decoration: underline;
+                    }
+                    .img-social:nth-child(1) {
+                        margin-right: 20px;
+                    }
+                    &.redes-sociales {
+                        .img-social {
+                            width: 30px;
+                            height: 30px;
+                        }
+                        .container-copy {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            margin-top: 30px;
+                            width: 100%;
+                            .img-logo-rosa {
+                                width: 40px;
+                                height: auto;
+                                margin-right: 15px;
+                            }
+                            .copy {
+                                color: #fff;
+                                .resena-copy {
+                                    margin-bottom: 0;
+                                    font-size: .7rem;
+                                    font-weight: 200;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .divider {
+        height: 1px;
+        background-color: $primary-color;
+    }
+}

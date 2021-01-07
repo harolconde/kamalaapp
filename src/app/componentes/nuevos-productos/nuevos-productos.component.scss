@@ -1,0 +1,172 @@
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Color
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+// Media queries
+@mixin responsiveMovil () {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 70%;
+    }
+}
+
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 72px;
+    margin-bottom: 72px;
+    .title-section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 40px;
+        .img {
+            margin-bottom: 10px;
+            width: 35px;
+            height: auto;
+        }
+        .subtitle-section {
+            font-size: 30px;
+            text-transform: uppercase;
+            color: $secondary-color;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 350px;
+            display: inline-table;
+            text-align: center;
+        }
+        .linea-titulo {
+            margin-top: 25px;
+        }
+    }
+}
+
+.card-producto {
+    border: 1px solid #ddd;
+}
+
+.center-elements {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+    .item-product-label {
+        font-style: normal;
+    }
+    .marca {
+        font-family: 'Roboto', sans-serif, Verdana;
+        font-size: 14px;
+        font-weight: 300;
+        color: #666666;
+        text-transform: uppercase;
+    }
+    .name-producto {
+        font-size: 16px;
+        font-weight: 500;
+        display: block;
+        height: 50px;
+        width: 220px;
+        margin-top: 10px;
+        line-height: 18px
+    }
+    .precio {
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+}
+
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: $primary-color;
+}
+
+::ng-deep .owl-theme {
+    .owl-nav {
+        width: 110%;
+        top: 45%;
+        left: -5%;
+        right: -5%;
+        pointer-events: none;
+        .owl-prev {
+            pointer-events: all;
+        }
+        .owl-next {
+            pointer-events: all;
+        }
+        @include responsiveMovil {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+::ng-deep {
+    .owl-carousel {
+        .owl-item {
+            .card-producto {
+                border: 0;
+                cursor: pointer;
+                margin-left: 10px;
+                margin-right: 10px;
+                img {
+                    width: 50%;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .ver-mas-detalles {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    width: 100%;
+                    height: auto;
+                    top: 37%;
+                    .btn-ver-mas {
+                        width: 30px;
+                        height: 30px;
+                        background-color: rgba($color: $primary-color, $alpha: 0.6);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: $secondary-color;
+                        font-weight: bold;
+                        border-radius: 50px;
+                        border: 1px solid $primary-color;
+                    }
+                    .texto-ver-mas {
+                        color: $secondary-color;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+            .card-producto:hover {
+                .ver-mas-detalles {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

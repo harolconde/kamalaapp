@@ -1,0 +1,85 @@
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+// Media queries
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Media queries
+@mixin responsiveMovil {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin responsiveMovilTable {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+        @content;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 70%;
+    }
+}
+
+#section-contacto {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: 515px;
+    @include responsiveMovilTable {
+        padding-top: 120px;
+        margin-top: 0;
+    }
+    .container {
+        .row {
+            .col-contacto {
+                .title {
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    margin-bottom: 30px;
+                    text-transform: uppercase;
+                }
+                .container-contactos {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    .paragraph-contacto {
+                        text-transform: uppercase;
+                        font-size: 1.2rem;
+                        font-weight: 300;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        padding: 0;
+                        .contacto {
+                            font-style: normal;
+                            &.correo {
+                                text-transform: lowercase;
+                            }
+                            &.telefonos {
+                                text-transform: capitalize;
+                            }
+                            &.direccion {
+                                text-transform: capitalize;
+                                margin-bottom: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            .col-mapa {
+                .container-mapa {
+                    border: .5px solid $primary-color;
+                }
+            }
+        }
+    }
+}

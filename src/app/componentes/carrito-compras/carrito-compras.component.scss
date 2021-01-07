@@ -1,0 +1,271 @@
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Media queries
+@mixin responsiveMovil() {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin responsiveMovilTable {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+        @content;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#section-cesta-de-compras {
+    border-top: 5px solid rgba($color: $secondary-color, $alpha: 0.7);
+    overflow-x: hidden;
+    .row {
+        .col-lg-4 {
+            padding: 30px 45px;
+            min-height: 510px;
+            background-color: rgba($color: #F0A5BC, $alpha: 0.3);
+            @include responsiveMovilTable {
+                min-height: 300px;
+                padding-top: 120px;
+            }
+            .container-totales {
+                .title {
+                    font-size: 2rem;
+                    font-weight: 300;
+                    color: $secondary-color;
+                    margin-bottom: 30px;
+                    text-transform: uppercase;
+                }
+                .costo-total {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .total-tittle {
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                    .total {
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                }
+                .envio-costo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .minimo-tittle {
+                        font-size: 1rem;
+                        font-weight: 300;
+                    }
+                    .minimo-total {
+                        font-size: 1rem;
+                        font-weight: 300;
+                    }
+                }
+                .minimo-descripcion {
+                    font-style: normal;
+                    font-size: .8rem;
+                    margin-top: 20px;
+                }
+                .container-btn-submit {
+                    margin-top: 30px;
+                    margin-bottom: 15px;
+                    .btn-comprar {
+                        background-color: $primary-color;
+                        color: $secondary-color;
+                        height: 40px;
+                        border-radius: 50px;
+                        width: 250px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .col-lg-8 {
+            .container {
+                .container-productos-cesta {
+                    .list-group-flush {
+                        @include responsiveMovilTable {
+                            padding-left: 0;
+                        }
+                        .list-group-item:nth-child(1) {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include responsiveMovil {
+                                padding-left: 0px;
+                                padding-right: 0px;
+                            }
+                            .titulo {
+                                display: block;
+                                width: 20%;
+                                font-style: normal;
+                                font-size: 1rem;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                                text-align: center;
+                                @include responsiveMovil {
+                                    width: 25%;
+                                }
+                            }
+                            .titulo:last-child {
+                                @include responsiveMovil {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .sin-contenido {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-height: 100px;
+                            .paragraph {
+                                font-size: 1rem;
+                                text-transform: uppercase;
+                                font-weight: 300;
+                            }
+                        }
+                        .producto-en-cesta {
+                            border: 0;
+                            .list-group-item {
+                                border: 0;
+                                @include responsiveMovil {
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                                .container-producto-detalle-cesta {
+                                    width: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: relative;
+                                    border-left: 0;
+                                    border-right: 0;
+                                    .productos {
+                                        width: 20%;
+                                        @include responsiveMovil {
+                                            width: 25%;
+                                        }
+                                        &.nombre-imagen {
+                                            display: flex;
+                                            align-items: center;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            .img-producto-cesta {
+                                                width: 50%;
+                                            }
+                                            .producto-marca {
+                                                margin-bottom: 0;
+                                                text-transform: uppercase;
+                                                font-size: 0.8rem;
+                                                font-weight: 300;
+                                            }
+                                            .producto-nombre {
+                                                margin-bottom: 0;
+                                                font-size: 0.8rem;
+                                                font-weight: 300;
+                                            }
+                                        }
+                                        &.precio {
+                                            text-align: center;
+                                            .producto-precio {
+                                                font-size: 1rem;
+                                                font-weight: 400;
+                                                margin-bottom: 0;
+                                            }
+                                        }
+                                        &.cantidad {
+                                            .producto-cantidad {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                .btn {
+                                                    width: 30px;
+                                                    height: 38px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    background-color: $secondary-color;
+                                                    color: $primary-color;
+                                                    &.btn-menos {
+                                                        border-radius: 5px 0 0 5px;
+                                                    }
+                                                    &.btn-mas {
+                                                        border-radius: 0 5px 5px 0;
+                                                    }
+                                                }
+                                                .input-cantidad {
+                                                    width: 50px;
+                                                    height: 38px;
+                                                    text-align: center;
+                                                }
+                                            }
+                                        }
+                                        &.total {
+                                            text-align: center;
+                                            .producto-total {
+                                                font-size: 1rem;
+                                                font-weight: 400;
+                                                margin-bottom: 0;
+                                            }
+                                        }
+                                        &.accion {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            @include responsiveMovil {
+                                                display: none;
+                                            }
+                                            .btn {
+                                                background-color: $secondary-color;
+                                                color: $primary-color;
+                                                text-transform: uppercase;
+                                                font-size: 1rem;
+                                                font-weight: 300;
+                                            }
+                                        }
+                                    }
+                                }
+                                .productos-accion {
+                                    display: none;
+                                    align-items: center;
+                                    justify-content: flex-end;
+                                    width: 100%;
+                                    @include responsiveMovil {
+                                        display: flex;
+                                    }
+                                    .btn {
+                                        background-color: $secondary-color;
+                                        color: $primary-color;
+                                        text-transform: uppercase;
+                                        font-size: 1rem;
+                                        font-weight: 300;
+                                        width: 40%;
+                                        margin-top: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

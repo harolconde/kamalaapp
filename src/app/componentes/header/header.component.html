@@ -1,0 +1,42 @@
+<!-- Menu de la aplicacion -->
+<header class="header">
+    <div class="container-fluid">
+        <div class="header-container">
+            <div class="info-add">
+                <small class="small">Envios gratuitos a partir de $300.000</small>
+                <small class="small d-none d-sm-none d-md-none d-lg-flex">
+                    Comunicate con nosotros en el numero:
+                    <br>
+                        301 433 9590
+                    </small>
+                <small class="small d-none d-sm-none d-md-none d-lg-flex">
+                    <em>Iniciar sesión</em>
+                    <button class="btn" type="button">
+                        <img class="img" [src]="'assets/logos/header/usuario.svg'" alt="">
+                    </button>
+                </small>
+            </div>
+            <div class="search-bar-icon d-none d-sm-none d-md-none d-lg-flex">
+                <div class="header-atributos header-search">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <img class="img" [src]="'assets/logos/menu/buscar.svg'" alt="Buscar">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar">
+                    </div>
+                </div>
+                <div class="header-atributos logo">
+                    <img class="img" [src]="'assets/logos/header/Kamala_logo_azul.png'" name="Logo Kámala" alt="Logo Kámala" [routerLink]="['/home']">
+                </div>
+                <div class="header-atributos cart" *ngIf="productosEnCesta$ | async as producto">
+                    <button class="btn" type="button" [routerLink]="['/cesta-de-productos']">
+                        <span class="cantidad-en-cesta">{{producto.length}}</span>
+                        <img class="img" [src]="'assets/logos/menu/bolsa_compra.svg'"  alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

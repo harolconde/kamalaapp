@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <div class="container-navbar-menu">
+            <button class="navbar-toggler btn-hamburguer" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="container-logo-kamala d-flex d-sm-flex d-md-flex d-lg-none d-xl-none">
+                <!-- <span class="line"></span> -->
+                <img class="img" [src]="'assets/logos/home/SIMBOL2.png'" alt="Logo Kamala Azul" alt="" [routerLink]="['/home']">
+                <!-- <span class="line"></span> -->
+            </div>
+            <div class="header-atributos cart d-flex d-sm-flex d-md-flex d-lg-none d-xl-none" *ngIf="productosEnCesta$ | async as producto">
+                <button class="btn" type="button" [routerLink]="['/cesta-de-productos']">
+                    <span class="cantidad-en-cesta">{{producto.length}}</span>
+                    <img class="img" [src]="'assets/logos/menu/bolsa_compra_azul.svg'"  alt="">
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" *ngFor="let categoria of categorias">
+                    <a class="nav-link" [routerLink]="['/categoria', categoria.id, categoria.nombre]">{{categoria.nombre}}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/tips']">Tips de belleza</a>
+                </li>
+                <li class="nav-item link-marcas">
+                    <a class="nav-link">Marcas</a>
+                    <ul class="list-group-flush marcas">
+                        <li class="list-group-item marca" *ngFor="let marca of marcas" [routerLink]="['/marcas', marca.id, marca.nombre]">
+                            {{marca.nombre}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>

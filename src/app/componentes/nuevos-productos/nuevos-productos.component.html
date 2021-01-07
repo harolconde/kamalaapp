@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="title-section">
+        <img class="img" [src]="'assets/logos/home/SIMBOL1.png'" alt="Logo Kamala Azul" alt="">
+        <div class="title">
+            <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea">
+            <span class="subtitle-section">Puede interesarte</span>
+            <img [src]="'assets/imagenes/home/Línea_titulo.svg'" class="linea-titulo" alt="linea">
+        </div>
+    </div>
+    <owl-carousel-o [options]="customOptions" class="carousel-products">
+        <ng-container *ngFor="let producto of productosNuevos">
+            <ng-template carouselSlide="carouselSlide" [id]="producto.id">
+                <div class="card card-producto" [routerLink]="['/producto', producto.id]">
+                    <img [src]="producto.imgProducto" [alt]="" [title]="producto.nombre">
+                    <div class="ver-mas-detalles">
+                        <button class="btn btn-ver-mas">
+                            +
+                        </button>
+                        <span class="texto-ver-mas">Ver mas</span>
+                    </div>
+                    <div class="center-elements">
+                        <span class="marca">{{producto.marca.nombre}}</span>
+                        <span class="name-producto">{{producto.nombre}}</span>
+                        <span class="precio">{{producto.precio | currency: 'USD' : 'symbol': '3.0'}}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

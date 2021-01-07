@@ -1,0 +1,96 @@
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Color
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+// Media queries
+@mixin responsiveMovil {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 70%;
+    }
+}
+
+#terminos-condiciones-politicas {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    .container {
+        .article {
+            .paragraph {
+                font-family: "Roboto", sans-serif, Verdana;
+                text-align: justify;
+            }
+            .title {
+                text-transform: uppercase;
+                font-family: "Roboto", sans-serif;
+                font-weight: 300;
+                color: $secondary-color;
+            }
+            .list {
+                width: 100%;
+                padding: 1rem 2rem;
+                .item {
+                    .subtitle {
+                        font-weight: 400;
+                    }
+                    .list-roman {
+                        width: 100%;
+                        padding: 1rem;
+                        .item-roman {
+                            .subtitle-list-roman {
+                                font-weight: 600;
+                            }
+                        }
+                        .list-letter {
+                            width: 100%;
+                            padding-left: 2rem;
+                            padding-right: 2rem;
+                            .item-list-letter {
+                                .subtitle-list-letter {
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .subtitle-policies {
+                font-weight: 300;
+            }
+        }
+        .container-logo-kamala {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            .line {
+                display: block;
+                width: 100px;
+                height: 0.4px;
+                background-color: $secondary-color;
+            }
+            .img {
+                width: 40px;
+                height: auto;
+                margin-left: 30px;
+                margin-right: 30px;
+            }
+        }
+    }
+}

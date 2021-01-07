@@ -1,0 +1,215 @@
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Media queries
+@mixin responsiveMovil {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin responsiveMovilTable {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+        @content;
+    }
+}
+
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.navbar {
+    height: 53px;
+    background-color: $primary-color;
+    padding-right: 0vw;
+    padding-left: 0vw;
+    z-index: 2000;
+    @include responsiveMovil {
+        height: auto;
+        border-bottom: 0.025px solid #ddd;
+    }
+    @include responsiveMovilTable {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border-top: 5px solid rgba($color: $secondary-color, $alpha: 0.98);
+        border-bottom: 1px solid rgba($color: $secondary-color, $alpha: 0.98);
+        height: 75px;
+        position: fixed;
+        width: 100%;
+        margin-top: 23px;
+    }
+    .container-navbar-menu {
+        @include responsiveMovilTable {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 53px;
+        }
+    }
+    .container-logo-kamala {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .img {
+            width: 40px;
+            height: auto;
+            margin-left: 30px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+    }
+    .navbar-brand {
+        @include responsiveMovil {
+            margin-left: 4vw;
+        }
+        .logo {
+            @include responsiveMovil {
+                width: 70%;
+            }
+        }
+    }
+    .navbar-toggler {
+        @include responsiveMovilTable {
+            margin-left: 20px;
+            border: 0;
+        }
+        .navbar-toggler-icon {
+            width: 40px;
+            height: 41px;
+        }
+    }
+    .cart {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @include responsiveMovilTable {
+            margin-right: 20px;
+            border: 0;
+        }
+        .btn {
+            outline: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .cantidad-en-cesta {
+                position: absolute;
+                margin-top: 20px;
+                width: 20px;
+                height: 20px;
+                border-radius: 50px;
+                background-color: $primary-color;
+                color: $secondary-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.7rem;
+                font-weight: 400;
+            }
+            .img {
+                width: 40px;
+            }
+        }
+    }
+    .navbar-collapse {
+        @include responsiveMovil {
+            background-color: #fff;
+        }
+        @include responsiveMovilTable {
+            background-color: $primary-color;
+        }
+        .navbar-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-left: 58px;
+            padding-right: 58px;
+            @include responsiveMovilTable {
+                display: block;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            .nav-item {
+                position: relative;
+                @include responsiveMovilTable {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+                .nav-link {
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    color: $secondary-color;
+                    @include responsiveMovilTable {
+                        margin-left: 58px;
+                    }
+                }
+                .marcas {
+                    background-color: #fff;
+                    border: 1px solid rgba($color: #000000, $alpha: 0.3);
+                    padding: 20px;
+                    display: none;
+                    flex-wrap: wrap;
+                    position: absolute;
+                    right: 0;
+                    top: 44px;
+                    width: 360px;
+                    height: auto;
+                    z-index: 2;
+                    @include responsiveMovilTable {
+                        width: 100%;
+                        flex-wrap: nowrap;
+                        flex-direction: column;
+                        padding: 0;
+                    }
+                    .marca {
+                        width: 100px;
+                        border: 0;
+                        cursor: pointer;
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        font-size: 1rem;
+                        position: relative;
+                        @include responsiveMovilTable {
+                            padding-left: 58px;
+                            padding-right: 58px;
+                            width: 100%;
+                        }
+                    }
+                }
+                &.link-marcas:hover {
+                    .marcas {
+                        display: flex;
+                        .marca:hover {
+                            @include responsiveMovilTable {
+                                background-color: rgba($color: $primary-color, $alpha: 0.5);
+                            }
+                        }
+                    }
+                    .marcas:hover {
+                        display: flex;
+                    }
+                }
+            }
+            .nav-item:hover {
+                @include responsiveMovilTable {
+                    background-color: rgba($color: $secondary-color, $alpha: 0.2);
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}

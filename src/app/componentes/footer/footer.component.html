@@ -1,0 +1,50 @@
+<footer class="footer">
+    <div class="row row-1">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 items-footer">
+            <ul class="list-group-flush">
+                <li class="list-group-item">Medios de pago</li>
+            </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 items-footer">
+            <ul class="list-group-flush">
+                <li class="list-group-item">Links de interes</li>
+                <li class="list-group-item">
+                    <a href="#" class="link-footer">Acerca de</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="link-footer" id="contacto-contaco" [routerLink]="['/contacto']">Contactanos</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="link-footer" id="contacto-numero">Llamanos 0316549845</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 items-footer">
+            <ul class="list-group-flush">
+                <li class="list-group-item">Legal</li>
+                <li class="list-group-item">
+                    <a href="#" class="link-footer" [routerLink]="['/politicas-terminos-y-condiciones']">Términos y condiciones</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="link-footer" [routerLink]="['/politicas-terminos-y-condiciones']">Políticas de privacidad</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 items-footer">
+            <ul class="list-group-flush">
+                <li class="list-group-item">Redes sociales</li>
+                <li class="list-group-item redes-sociales">
+                    <img class="img-social" [src]="'assets/logos/footer/Logo_Facebook.svg'" alt="">
+                    <img class="img-social" [src]="'assets/logos/footer/Logo_Instagram.svg'" alt="">
+                    <div class="container-copy">
+                        <img class="img-logo-rosa" [src]="'assets/logos/home/SIMBOL1.png'" alt="">
+                        <div class="copy">
+                            <p class="resena-copy">KÁMALA TU TIENDA DE COSMETICOS <br> &copy; {{anoActual}} Todos los derechos reservados</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr class="divider">
+</footer>

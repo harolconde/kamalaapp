@@ -1,0 +1,27 @@
+// Fuentes
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+button:focus,
+button:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+* {
+    font-family: 'Roboto', sans-serif, Verdana;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

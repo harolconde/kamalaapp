@@ -1,0 +1,191 @@
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Media queries
+@mixin responsiveMovil() {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin responsiveMovilTable {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+        @content;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#section-producto-detalle {
+    border-top: 5px solid rgba($color: $secondary-color, $alpha: 0.7);
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+        .col-12:nth-child(1) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(240, 165, 188, 0.3);
+            @include responsiveMovilTable {
+                padding-top: 92px;
+            }
+            .container-img {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .img-producto {
+                    width: 50%;
+                    display: block;
+                    @include responsiveMovil {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+        .col-12:nth-child(2) {
+            background-color: rgba($color: #F0A5BC, $alpha: 0.3);
+            .container {
+                .container-caracteristicas {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    .marca {
+                        display: block;
+                        font-size: 20px;
+                        font-weight: 300;
+                        color: #444;
+                        margin-top: 20px;
+                        text-transform: uppercase;
+                    }
+                    .nombre {
+                        display: block;
+                        font-size: 30px;
+                        font-weight: 400;
+                        margin-top: 20px;
+                        color: $secondary-color;
+                    }
+                    .container-contenido {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            display: block;
+                            height: 20px;
+                            width: 1px;
+                            background-color: #555;
+                        }
+                        .contenido-cantidad {
+                            margin-bottom: 0;
+                            line-height: 25px;
+                            font-size: 1rem;
+                            font-weight: 300;
+                            &.contenido {
+                                margin-right: 30px;
+                            }
+                            &.cantidad {
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+                    .descripcion {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        font-size: 0.85rem;
+                        margin-top: 20px;
+                        text-align: justify;
+                        font-weight: 300;
+                    }
+                    .container-cantidad {
+                        margin-top: 15px;
+                        margin-bottom: 25px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        .cantidad {
+                            margin-right: 15px;
+                            margin-bottom: 10px;
+                            font-size: 16px;
+                            font-weight: 300;
+                            font-style: normal;
+                            text-transform: uppercase;
+                        }
+                        .formGroup {
+                            display: flex;
+                            align-items: center;
+                            .btn {
+                                width: 50px;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: 1px solid #ddd;
+                                background-color: $secondary-color;
+                                color: $primary-color;
+                                font-weight: bold;
+                                &.btn-minus {
+                                    border-radius: 50px 0px 0px 50px;
+                                }
+                                &.btn-more {
+                                    border-radius: 0px 50px 50px 0px;
+                                }
+                            }
+                            #input-cantidad {
+                                width: 60px;
+                                height: 30px;
+                                background-color: #fff;
+                                border: 0.2px solid #ddd;
+                                border-radius: 0;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .precio {
+                        font-size: 30px;
+                        margin-top: 10px;
+                        font-weight: 400;
+                        color: $primary-color;
+                    }
+                    .btn-add-carrito {
+                        margin-top: 10px;
+                        margin-bottom: 30px;
+                        width: 300px;
+                        text-transform: uppercase;
+                        background-color: $primary-color;
+                        border-radius: 50px;
+                        color: $secondary-color;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include responsiveMovil {
+                            width: 230px;
+                        }
+                        .img-cart {
+                            width: 15px;
+                            margin-left: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .row:nth-child(2) {
+        overflow-x: hidden;
+    }
+}

@@ -1,0 +1,159 @@
+$primary-color: #F0A5BC;
+$secondary-color: #262F56;
+$grid-breakpoints: ( // Extra small screen / phone
+"xs": 0, // Small screen / phone
+"sm": 576px, // Medium screen / tablet
+"md": 768px, // Large screen / desktop
+"lg": 992px, // Extra large screen / wide desktop
+"xl": 1200px);
+// Media queries
+@mixin responsiveMovil {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin responsiveMovilTable {
+    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+        @content;
+    }
+}
+
+input:focus {
+    outline: 0;
+    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+// Remove Outline
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+    box-shadow: inset 0 -1px 0 #ddd;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.header {
+    padding-left: 0;
+    padding-right: 0;
+    @include responsiveMovilTable {
+        position: fixed;
+        z-index: 3000;
+        background-color: #fff;
+        width: 100%;
+    }
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+        .info-add {
+            align-items: center;
+            border-bottom: 1px solid $primary-color;
+            display: flex;
+            height: 42px;
+            justify-content: space-between;
+            padding-right: 63px;
+            padding-left: 63px;
+            @include responsiveMovilTable {
+                justify-content: space-evenly;
+                height: 25px;
+            }
+            .small {
+                text-align: center;
+                font-weight: 400;
+                line-height: 14px;
+                .btn {
+                    padding: 0;
+                    margin-left: 30px;
+                    .img {
+                        width: 25px;
+                        height: 25px;
+                        color: $primary-color;
+                    }
+                }
+            }
+            .small:nth-child(3) {
+                em {
+                    font-style: normal;
+                }
+            }
+        }
+        .search-bar-icon {
+            display: flex;
+            align-items: center;
+            height: 114px;
+            justify-content: space-between;
+            width: 100%;
+            padding-right: 155px;
+            padding-left: 155px;
+            .header-atributos {
+                width: 223px;
+                &.logo {
+                    .img {
+                        width: 223px;
+                        cursor: pointer;
+                    }
+                }
+                &.header-search {
+                    .input-group {
+                        border: 1px solid $primary-color;
+                        border-radius: 50px;
+                        .input-group-prepend {
+                            .input-group-text {
+                                border: 0;
+                                background-color: $primary-color;
+                                border-radius: 50px 0px 0px 50px;
+                                .img {
+                                    width: 25px;
+                                }
+                            }
+                        }
+                        .form-control {
+                            border: 0;
+                            border-radius: 0px 50px 50px 0px;
+                        }
+                    }
+                }
+                &.cart {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    .btn {
+                        outline: 0;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .cantidad-en-cesta {
+                            position: absolute;
+                            margin-top: 20px;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50px;
+                            background-color: $secondary-color;
+                            color: $primary-color;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 0.7rem;
+                            font-weight: 400;
+                        }
+                        .img {
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
