@@ -30,11 +30,9 @@ export class SubcategoriaComponent implements OnInit {
     }
 
     public obtenerProductos(): void {
-        console.log('Ingreso!!!');
         this.productosSubcategoria = this.route.paramMap.pipe(switchMap((params: ParamMap) =>
             this.idProductoSubcategoria = this.producto.getProductosPorSubcategorias(params.get('id'))
         ));
-        console.log(this.productosSubcategoria);
     }
 
 

@@ -42,7 +42,6 @@ export class MarcasComponent implements OnInit {
 
     public mostrarId(id): void {
         this.titulo = id.source.source.value.nombre;
-        console.log(this.titulo);
     }
 
     public trackByItems(index: number, item: Producto): string {
@@ -51,9 +50,7 @@ export class MarcasComponent implements OnInit {
 
     public showCategorias() {
         let itemsSubcategorias = document.getElementsByClassName('list-subcategorias');
-        console.log(itemsSubcategorias);
         for (let i = 0; i < itemsSubcategorias.length; i++) {
-            console.log(i);
         }
     }
 

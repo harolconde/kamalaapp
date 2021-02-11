@@ -59,20 +59,17 @@ export class HomeComponent implements OnInit {
     public getProductosNuevos(): void {
         this.productos.getProductosHome().subscribe(data => {
             this.productosNuevos = data;
-            console.log(this.productosNuevos);
         })
     }
 
     public getBannersHome(): void {
         this.productos.getBanners().subscribe(data => {
             this.banners = data;
-            console.log(this.banners);
         });
     }
 
     public getTipsDeBelleza(){
         this.productos.getTips().subscribe((data) => {
-            console.log(data);
             this.tips = data;
         })
     }

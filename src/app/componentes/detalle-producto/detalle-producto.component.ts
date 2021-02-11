@@ -71,7 +71,6 @@ export class DetalleProductoComponent implements OnInit {
             this.cantidad = 0;
         } else {
             alert('La cantidad del producto debe ser mayor a 0');
-        }
-        
+        } 
     }
 }
