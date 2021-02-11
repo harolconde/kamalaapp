@@ -50,24 +50,28 @@ export class DetalleProductoComponent implements OnInit {
     public adicionalProductoAcesta(producto) {
         this.formProductoAgregado.get('cantidad').setValue(this.cantidad);
         const cantidad = this.formProductoAgregado.get('cantidad').value;
-        const productoAgregado: ProductoCarrito = {
-            id : producto.id,
-            imgProducto: producto.imgProducto,
-            nombre: producto.nombre,
-            marca: producto.marca,
-            precio: producto.precio,
-            contenidoNeto: producto.contenidoNeto,
-            unidadMedida: producto.unidadMedida,
-            descripcion: producto.descripcion,
-            calificacion: producto.calificacion,
-            stock: producto.stock,
-            categoria: producto.categoria,
-            cantidad: cantidad,
-            total: producto.precio * cantidad
+        if (cantidad > 0){
+            const productoAgregado: ProductoCarrito = {
+                id: producto.id,
+                imgProducto: producto.imgProducto,
+                nombre: producto.nombre,
+                marca: producto.marca,
+                precio: producto.precio,
+                contenidoNeto: producto.contenidoNeto,
+                unidadMedida: producto.unidadMedida,
+                descripcion: producto.descripcion,
+                calificacion: producto.calificacion,
+                stock: producto.stock,
+                categoria: producto.categoria,
+                cantidad: cantidad,
+                total: producto.precio * cantidad
+            }
+            this.producto.productosCarrito.push(productoAgregado);
+            this.formProductoAgregado.reset();
+            this.cantidad = 0;
+        } else {
+            alert('La cantidad del producto debe ser mayor a 0');
         }
-        this.producto.productosCarrito.push(productoAgregado);
-        this.formProductoAgregado.reset();
+        
     }
-
-
 }

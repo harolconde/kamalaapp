@@ -15,5 +15,6 @@ export interface Producto {
     calificacion?: number;
     stock: number;
     categoria?: Categoria;
-    subcategoria?: Subcategoria;  
+    subcategoria?: Subcategoria;
+    estado?: boolean 
 }

@@ -4,6 +4,7 @@ import { Banner } from 'src/app/modelos/banner';
 import { Producto } from 'src/app/modelos/producto';
 import { Tip } from 'src/app/modelos/tip';
 import { ProductosService } from '../../servicios/productos.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -17,7 +18,11 @@ export class HomeComponent implements OnInit {
     public banners: Array<Banner> = [];
     public tips: Array<Tip> = [];
 
-    constructor(private productos: ProductosService) { }
+    constructor(private productos: ProductosService, private _config: NgbCarouselConfig ) { 
+        _config.interval = 3000;
+        _config.pauseOnHover = true;
+        _config.wrap = true;
+    }
 
     customOptions: OwlOptions = {
         loop: true,
@@ -32,7 +37,7 @@ export class HomeComponent implements OnInit {
                 items: 1
             },
             400: {
-                items: 2
+                items: 1
             },
             740: {
                 items: 3

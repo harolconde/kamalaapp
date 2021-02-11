@@ -1,364 +1,511 @@
 $grid-breakpoints: ( // Extra small screen / phone
-"xs": 0, // Small screen / phone
-"sm": 576px, // Medium screen / tablet
-"md": 768px, // Large screen / desktop
-"lg": 992px, // Extra large screen / wide desktop
-"xl": 1200px);
+  "xs": 0, // Small screen / phone
+  "sm": 576px, // Medium screen / tablet
+  "md": 768px, // Large screen / desktop
+  "lg": 992px, // Extra large screen / wide desktop
+  "xl": 1200px);
+
 // Color
 $primary-color: #F0A5BC;
 $secondary-color: #262F56;
+
 // Media queries
 @mixin responsiveMovil {
-    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
-        @content;
-    }
+  @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "md")) {
+    @content;
+  }
 }
 
 @mixin responsiveMovilTable {
-    @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
-        @content;
-    }
+  @media (min-width: map-get($grid-breakpoints, "xs")) and (max-width: map-get($grid-breakpoints, "lg")) {
+    @content;
+  }
 }
 
 @media (min-width: 1200px) {
-    .container-xl,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container {
-        max-width: 70%;
-    }
+
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 70%;
+  }
 }
 
 .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-    @include responsiveMovilTable {
-        padding-top: 98px;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include responsiveMovilTable {
+    padding-top: 98px;
+  }
+
+  .container-banner {
+    width: 100%;
+    height: 573px;
+    overflow: hidden;
+    @include responsiveMovilTable{
+        height: auto;
     }
-    .container-banner {}
-    .container-sub-menus {
+    .carousel {
+      .carousel-indicators {
+        .ng-star-inserted {
+          width: 30px !important;
+          height: 30px !important;
+          border-radius: 50px;
+        }
+      }
+    }
+
+    .picsum-img-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 573px;
+      overflow: hidden;
+      @include responsiveMovilTable{
+          height: auto;
+      }
+
+      .img-banner {
         width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 0.025px solid #ddd;
-        .sub-menus {
-            width: 100%;
-            display: flex;
-            .item-sub-menu {
-                display: flex;
-                width: 16.6%;
-                align-items: center;
-                justify-content: space-around;
-                .sub-menu {
-                    font-size: 20px;
-                    font-weight: 300;
-                    text-transform: uppercase;
-                }
-            }
-        }
+        height: auto;
+      }
     }
-    .section {
-        &.section-poducts-init {
-            .container {
-                padding-top: 30px;
-                padding-bottom: 30px;
-                margin-top: 72px;
-                margin-bottom: 72px;
-                .title-section {
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    margin-bottom: 40px;
-                    .sub-ver-todos {
-                        color: $secondary-color;
-                        font-style: normal;
-                        font-size: 20px;
-                        font-weight: 400;
-                        text-transform: uppercase;
-                    }
-                    .subtitle-section {
-                        font-size: 30px;
-                        text-transform: uppercase;
-                        color: $secondary-color;
-                        margin-left: 30px;
-                        margin-right: 30px;
-                        width: 328px;
-                        display: inline-table;
-                        text-align: center;
-                    }
-                    .linea-titulo {
-                        margin-top: 25px;
-                        @include responsiveMovil {
-                            display: none;
-                        }
-                    }
-                }
-            }
+  }
+
+  .container-sub-menus {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 0.025px solid #ddd;
+
+    .sub-menus {
+      width: 100%;
+      display: flex;
+
+      .item-sub-menu {
+        display: flex;
+        width: 16.6%;
+        align-items: center;
+        justify-content: space-around;
+
+        .sub-menu {
+          font-size: 20px;
+          font-weight: 300;
+          text-transform: uppercase;
         }
-        &.section-tendencias {
-            .container-tendencias {
-                height: 659px;
-                width: 100%;
-                overflow: hidden;
+      }
+    }
+  }
+
+  .section {
+    &.section-poducts-init {
+      .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-top: 72px;
+        margin-bottom: 72px;
+        position: relative;
+        .title-section {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-bottom: 40px;
+
+          .sub-ver-todos {
+            color: $secondary-color;
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+
+          .subtitle-section {
+            font-size: 30px;
+            text-transform: uppercase;
+            color: $secondary-color;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 328px;
+            display: inline-table;
+            text-align: center;
+          }
+
+          .linea-titulo {
+            margin-top: 25px;
+
+            @include responsiveMovil {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.section-tendencias {
+      .container-tendencias {
+        height: 659px;
+        width: 100%;
+        overflow: hidden;
+        display: block;
+        @include responsiveMovil{
+            height: auto;
+        }
+        .row {
+          margin-left: 0;
+          margin-right: 0;
+
+          .col-description {
+            padding-right: 0;
+            padding-left: 0;
+
+            .title-section {
+              background-color: rgba($color: #F0A5BC, $alpha: 0.3);
+              padding: 2rem 6rem 2rem 6rem;
+
+              @include responsiveMovil {
+                padding: 2rem;
+              }
+
+              .img {
+                width: 103px;
                 display: block;
-                .row {
+                position: relative;
+                margin-top: 40px;
+                margin-bottom: 60px;
+              }
+
+              .title {
+                font-size: 3.5rem;
+                font-weight: 300;
+                color: $secondary-color;
+                line-height: 60px;
+              }
+
+              .paragraph-description {
+                margin-top: 30px;
+                font-size: 21.5px;
+                font-weight: 300;
+                color: #404040;
+                -webkit-text-stroke: 1px solid #777777;
+              }
+
+              .btn-outline {
+                border: 2px solid $primary-color;
+                background-color: $primary-color;
+                border-radius: 50px;
+                color: $secondary-color;
+                text-transform: uppercase;
+                font-size: 27px;
+                padding-right: 20px;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 50px;
+                margin-bottom: 24px;
+              }
+
+              .img-tendencias-cosmetics {
+                width: 100%;
+                margin-top: 105px;
+              }
+            }
+          }
+
+          .col-images {
+            position: relative;
+            padding-left: 0;
+            overflow: hidden;
+
+            .container-images {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              background-color: #111111;
+              display: flex;
+
+              .row {
+                .col-img-tendencias {
+                  padding: 0;
+
+                  .img {
+                    width: 100%;
+                    height: auto;
                     margin-left: 0;
-                    margin-right: 0;
-                    .col-description {
-                        padding-right: 0;
-                        padding-left: 0;
-                        .title-section {
-                            background-color: rgba($color: #F0A5BC, $alpha: 0.3);
-                            padding: 2rem 6rem 2rem 6rem;
-                            @include responsiveMovil {
-                                padding: 2rem;
-                            }
-                            .img {
-                                width: 103px;
-                                display: block;
-                                position: relative;
-                                margin-top: 40px;
-                                margin-bottom: 60px;
-                            }
-                            .title {
-                                font-size: 3.5rem;
-                                font-weight: 300;
-                                color: $secondary-color;
-                                line-height: 60px;
-                            }
-                            .paragraph-description {
-                                margin-top: 30px;
-                                font-size: 21.5px;
-                                font-weight: 300;
-                                color: #404040;
-                                -webkit-text-stroke: 1px solid #777777;
-                            }
-                            .btn-outline {
-                                border: 2px solid $primary-color;
-                                background-color: $primary-color;
-                                border-radius: 50px;
-                                color: $secondary-color;
-                                text-transform: uppercase;
-                                font-size: 27px;
-                                padding-right: 20px;
-                                padding-left: 20px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                margin-top: 50px;
-                                margin-bottom: 24px;
-                            }
-                            .img-tendencias-cosmetics {
-                                width: 100%;
-                                margin-top: 105px;
-                            }
-                        }
-                    }
-                    .col-images {
-                        position: relative;
-                        padding-left: 0;
-                        overflow: hidden;
-                        .container-images {
-                            position: absolute;
-                            height: 100%;
-                            width: 100%;
-                            background-color: #111111;
-                            display: flex;
-                            .row {
-                                .col-img-tendencias {
-                                    padding: 0;
-                                    .img {
-                                        width: 100%;
-                                        height: auto;
-                                        margin-left: 0;
-                                    }
-                                    .img-lg {
-                                        width: 100%;
-                                        height: auto;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                  }
+
+                  .img-lg {
+                    width: 100%;
+                    height: auto;
+                  }
                 }
+              }
             }
+          }
         }
-        &.section-tips {
-            margin-top: 72px;
-            margin-bottom: 72px;
-            .container {
-                padding-top: 30px;
-                padding-bottom: 30px;
-                .title-section {
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    margin-bottom: 40px;
-                    .sub-ver-todos {
-                        color: $secondary-color;
-                        font-style: normal;
-                        font-size: 20px;
-                        font-weight: 400;
-                        text-transform: uppercase;
-                    }
-                    .subtitle-section {
-                        font-size: 30px;
-                        text-transform: uppercase;
-                        color: $secondary-color;
-                        margin-left: 30px;
-                        margin-right: 30px;
-                        width: 328px;
-                        display: inline-table;
-                        text-align: center;
-                    }
-                    .linea-titulo {
-                        margin-top: 25px;
-                        @include responsiveMovilTable {
-                            display: none;
-                        }
-                    }
-                }
-                .container-cards-tips {
-                    align-items: center;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    padding: 1rem;
-                    .card {
-                        width: 18rem;
-                        margin: 10px;
-                        @include responsiveMovil() {
-                            width: 100%;
-                        }
-                        .link {
-                            width: 100%;
-                            height: auto;
-                            .img-tip {
-                                width: 100%;
-                                height: auto;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+
+    &.section-tips {
+      margin-top: 72px;
+      margin-bottom: 72px;
+
+      .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        .title-section {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-bottom: 40px;
+
+          .sub-ver-todos {
+            color: $secondary-color;
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+
+          .subtitle-section {
+            font-size: 30px;
+            text-transform: uppercase;
+            color: $secondary-color;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 328px;
+            display: inline-table;
+            text-align: center;
+          }
+
+          .linea-titulo {
+            margin-top: 25px;
+
+            @include responsiveMovilTable {
+              display: none;
+            }
+          }
+        }
+
+        .container-cards-tips {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 1rem;
+
+          .card {
+            width: 18rem;
+            margin: 10px;
+
+            @include responsiveMovil() {
+              width: 100%;
+            }
+
+            .link {
+              width: 100%;
+              height: auto;
+
+              .img-tip {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .owl-theme {
-    position: relative !important;
-    .owl-nav {
-        [class*='owl-'] {
-            img {}
-        }
+  position: relative !important;
+
+  .owl-nav {
+    [class*='owl-'] {
+      img {}
     }
+  }
 }
 
 .center-elements {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-top: 40px;
-    .item-product-label {
-        font-style: normal;
-    }
-    .marca {
-        font-family: 'Roboto', sans-serif, Verdana;
-        font-size: 14px;
-        font-weight: 300;
-        color: #666666;
-        text-transform: uppercase;
-    }
-    .name-producto {
-        font-size: 16px;
-        font-weight: 500;
-        display: block;
-        height: 50px;
-        width: 220px;
-        margin-top: 10px;
-        line-height: 18px
-    }
-    .precio {
-        font-size: 25px;
-        font-weight: 400;
-        margin-bottom: 30px;
-    }
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+
+  .item-product-label {
+    font-style: normal;
+  }
+
+  .marca {
+    font-family: 'Roboto', sans-serif, Verdana;
+    font-size: 14px;
+    font-weight: 300;
+    color: #666666;
+    text-transform: uppercase;
+  }
+
+  .name-producto {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    height: 50px;
+    width: 220px;
+    margin-top: 10px;
+    line-height: 18px
+  }
+
+  .precio {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
 }
 
 .carousel-indicators li {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 .carousel-indicators .active {
-    background-color: $primary-color;
+  background-color: $primary-color;
 }
 
 ::ng-deep .owl-theme {
-    .owl-nav {
-        width: 110%;
-        top: 45%;
-        left: -5%;
-        right: -5%;
-        pointer-events: none;
-        .owl-prev {
-            pointer-events: all !important;
-        }
-        .owl-next {
-            pointer-events: all !important;
-        }
+  .owl-nav {
+    width: 110%;
+    top: 45%;
+    left: -5%;
+    right: -5%;
+    pointer-events: none;
+    position: absolute;
+    .owl-prev {
+      pointer-events: all !important;
+      position: absolute;
+      left: 0;
+      background: none;
     }
+    .owl-prev:hover {
+      background: rgba($color: $secondary-color, $alpha: 0.8);
+    }
+
+    .owl-next {
+      pointer-events: all !important;
+      position: absolute;
+      right: 0;
+      background: none;
+    }
+    .owl-next:hover {
+      background: rgba($color: $secondary-color, $alpha: 0.8);
+    }
+  }
 }
 
 ::ng-deep {
-    .owl-carousel {
-        .owl-item {
-            .card-producto {
-                border: 0;
-                cursor: pointer;
-                margin-left: 10px;
-                margin-right: 10px;
-                img {
-                    width: 50%;
-                    display: block;
-                    margin: 0 auto;
-                }
-                .ver-mas-detalles {
-                    display: none;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    width: 100%;
-                    height: auto;
-                    top: 40%;
-                    .btn-ver-mas {
-                        width: 30px;
-                        height: 30px;
-                        background-color: rgba($color: $primary-color, $alpha: 0.6);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: $secondary-color;
-                        font-weight: bold;
-                        border-radius: 50px;
-                        border: 1px solid $primary-color;
-                    }
-                    .texto-ver-mas {
-                        color: $secondary-color;
-                        text-transform: uppercase;
-                    }
-                }
-            }
-            .card-producto:hover {
-                .ver-mas-detalles {
-                    display: flex;
-                }
-            }
+  .owl-carousel {
+    .owl-item {
+      .card-producto {
+        border: 0;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        img {
+          width: 50%;
+          display: block;
+          margin: 0 auto;
         }
+
+        .ver-mas-detalles {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          width: 100%;
+          height: auto;
+          top: 40%;
+
+          .btn-ver-mas {
+            width: 30px;
+            height: 30px;
+            background-color: rgba($color: $primary-color, $alpha: 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $secondary-color;
+            font-weight: bold;
+            border-radius: 50px;
+            border: 1px solid $primary-color;
+          }
+
+          .texto-ver-mas {
+            color: $secondary-color;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .card-producto:hover {
+        .ver-mas-detalles {
+          display: flex;
+        }
+      }
     }
+  }
+}
+
+// Carousel configuracion estilos
+ngb-carousel {
+  max-width: 100%;
+}
+
+ngb-carousel img {
+  width: 100%;
+  outline: none;
+}
+
+ngb-carousel {
+  width: inherit;
+  height: inherit;
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.carousel-item {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s;
+  z-index: -1;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+.carousel-control-prev {
+  z-index: 20;
+}
+
+
+.carousel-control-next {
+  z-index: 20;
+}
+
+.carousel-indicators {
+  z-index: 20;
 }

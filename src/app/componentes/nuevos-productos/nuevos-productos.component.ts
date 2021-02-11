@@ -10,7 +10,7 @@ import { ProductosService } from '../../servicios/productos.service';
 })
 export class NuevosProductosComponent implements OnInit {
     public productosNuevos: Array<Producto> = [];
-
+    public productosAleatorios: Array<Producto> = [];
     constructor(private productos: ProductosService) { }
     customOptions: OwlOptions = {
         loop: true,
@@ -25,7 +25,7 @@ export class NuevosProductosComponent implements OnInit {
                 items: 1
             },
             400: {
-                items: 2
+                items: 1
             },
             740: {
                 items: 3
@@ -36,15 +36,40 @@ export class NuevosProductosComponent implements OnInit {
         },
         nav: true
     }
-
     ngOnInit(): void {
         this.getProductosNuevos();
+        //this.shuffledArray = this.shuffleArray(this.productosNuevos)
     }
 
     public getProductosNuevos(): void {
         this.productos.getProductosHome().subscribe(data => {
-            this.productosNuevos = data;
+            //this.productosNuevos = data;
+            let arrayRandom: number = data.length;
+            let random;
+            let seleccion;
+            for(let i = 0; i < arrayRandom; i++){
+                random = Math.floor(Math.random() * (data.length));
+                seleccion = data[random];
+                this.productosNuevos.push(seleccion);
+                
+                console.log(data.splice(random, 1));
+            }
+            
+            //this.productosNuevos = data;
         })
     }
 
+
+
+    public shuffleArray(array) {
+        //this.productosNuevos = array;
+        this.productosNuevos = array;
+        // for (let i = 0; i < array.length; i++) {
+        //     this.productosNuevos.push();
+        // }
+        console.log(this.productosNuevos);
+
+    }
+
 }
+

@@ -26,6 +26,8 @@ import { SubcategoriaComponent } from './componentes/subcategoria/subcategoria.c
 import { TipsDeBellezaComponent } from './componentes/tips-de-belleza/tips-de-belleza.component';
 import { PoliticasYterminosYcondicionesComponent } from './componentes/politicas-yterminos-ycondiciones/politicas-yterminos-ycondiciones.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -56,7 +58,10 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
         AngularFireModule.initializeApp(environment.firebaseConfig),
         FormsModule,
         ReactiveFormsModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        NgbAlertModule,
+        NgbPaginationModule,
+        NgbModule
     ],
     providers: [
         ProductosService
