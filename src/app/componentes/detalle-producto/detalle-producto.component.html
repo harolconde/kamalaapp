@@ -14,7 +14,7 @@
                                 <div class="container-contenido">
                                     <p class="contenido-cantidad contenido">Contenido:
                                         {{producto.contenidoNeto}}
-                                        {{producto.unidadMedida}}
+                                        {{producto.unidadMedida.unidad}}
                                     </p>
                                 </div>
                                 <h4 class="precio">{{producto.precio | currency: 'USD' : 'symbol': '3.0'}}</h4>

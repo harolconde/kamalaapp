@@ -49,10 +49,11 @@ export class CarritoComprasComponent implements OnInit {
             if (producto == this.producto.productosCarrito[i]) {
                 this.producto.productosCarrito[i].cantidad = this.producto.productosCarrito[i].cantidad + 1;
                 this.producto.productosCarrito[i].total = this.producto.productosCarrito[i].total + this.producto.productosCarrito[i].precio;
-                this.mostrarTotales();
                 this.minimo = this.minimo - this.producto.productosCarrito[i].precio;
+                
             }
         }
+        this.mostrarTotales();
         console.log(this.producto.productosCarrito);
         
     }
